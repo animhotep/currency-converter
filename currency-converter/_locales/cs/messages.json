@@ -1,0 +1,22 @@
+{
+  "appName": {
+    "message": "Měnový konvertor",
+    "description": "Currency Converter"
+  },
+  "appDesc": {
+    "message": "Minimalistický převod měn", 
+    "description":"The description of the application, displayed in the web store."
+  },
+  "appSale": {
+    "message": "Prod", 
+    "description":"sale"
+  },
+  "appBuy": {
+    "message": "Koup", 
+    "description":"buy"
+  },
+  "appDonate": {
+    "message": "darovat", 
+    "description":"donate"
+  }
+}

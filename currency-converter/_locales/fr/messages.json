@@ -1,0 +1,22 @@
+{
+  "appName": {
+    "message": "Convertisseur de devises",
+    "description": "Currency Converter"
+  },
+  "appDesc": {
+    "message": "Le convertisseur de devises minimaliste", 
+    "description":"The description of the application, displayed in the web store."
+  },
+  "appSale": {
+    "message": "Vente", 
+    "description":"sale"
+  },
+  "appBuy": {
+    "message": "Acheter", 
+    "description":"buy"
+  },
+  "appDonate": {
+    "message": "faire", 
+    "description":"donate"
+  }
+}

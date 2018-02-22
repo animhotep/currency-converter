@@ -1,0 +1,22 @@
+{
+  "appName": {
+    "message": "Μετατροπέας νομισμάτων",
+    "description": "Currency Converter"
+  },
+  "appDesc": {
+    "message": "Ο μινιμαλιστικός μετατροπέας νομισμάτων", 
+    "description":"The description of the application, displayed in the web store."
+  },
+  "appSale": {
+    "message": "Πώληση", 
+    "description":"sale"
+  },
+  "appBuy": {
+    "message": "Αγορά", 
+    "description":"buy"
+  },
+  "appDonate": {
+    "message": "δωρίστε", 
+    "description":"donate"
+  }
+}

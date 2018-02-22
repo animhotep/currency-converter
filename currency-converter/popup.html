@@ -1,34 +1,74 @@
-<!doctype html>
-<html>
-<head>
-<title>Getting Started Extension's Popup</title>
-<meta charset='utf-8'>
-<style>
-  body{
+<!DOCTYPE html>
+<html><head>
+  <title>Currency converter</title>
+  <style>
+  body {
     background: #81B655;
-  }
-  .currency{
     font: bold normal 20px "Courier New", Courier, monospace;
-    width: 155px;
     color: #fff;
   }
-  .currency input{
+  
+  .currency {
+    width: 150px;
+  }
+  
+  .currency input {
     font: bold normal 20px "Courier New", Courier, monospace;
-    width: 95px;
+    width: 88px;
     border: 1px solid #CCCCCC;
     border-radius: 4px;
     box-shadow: inset 0px 2px 2px #E2E2E2;
     padding: 5px;
   }
-</style>
+  
+  .btn {
+    background: #579121;
+    color: #fff;
+    text-decoration: none;
+    margin: 5px 0 0 0;
+    display: block;
+    padding: 5px;
+    text-align: center;
+    border-radius: 3px;
+    border: 1px solid #415e30;
+    box-shadow: inset 0px 2px 2px #E2E2E2;
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.7);
+    text-transform: uppercase;
+  }
+  
+  .btn:hover {
+    border-color: #5f9e26;
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.7);
+  }
+  </style>
 
-<script src="popup.js"></script>
+  <script src="popup.js"></script>
 </head>
+
 <body>
-  <div class="currency"><input type="text" id="usd-input" value="1"> USD</div>
-  <div class="currency"><input type="text" id="rub-input"> RUB</div>
-  <div class="currency"><input type="text" id="eur-input"> EUR</div>
-  <div class="currency"><input type="text" id="uah-input"> UAH</div>
-  <a href="http://charts.finance.ua/ru/currency/cash">Графики курсов</a>
-</body>
-</html>
+  <div class="currency">
+    <input type="number" id="usd-input"> USD
+  </div>
+  <div class="currency">
+    <input type="number" id="rub-input"> RUB
+  </div>
+  <div class="currency">
+    <input type="number" id="eur-input"> EUR
+  </div>
+  <div class="currency">
+    <input type="number" id="uah-input"> UAH
+  </div>
+
+  <hr>
+  <label>
+    <input type="radio" name="convertDirection" id="buy" value="buy" checked>__MSG_appBuy__
+  </label>
+  <label>
+    <input type="radio" name="convertDirection" id="sale" value="sale">__MSG_appSale__
+  </label>
+
+  <hr>
+  <a href="" id="donate" class="btn">__MSG_appDonate__</a>
+
+
+</body></html>

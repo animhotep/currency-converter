@@ -1,0 +1,22 @@
+{
+  "appName": {
+    "message": "Конвертер Валют",
+    "description": "Currency Converter"
+  },
+  "appDesc": {
+    "message": "Мiнiмалiстичний конвертер валют", 
+    "description":"The description of the application, displayed in the web store."
+  },
+  "appSale": {
+    "message": "Прод", 
+    "description":"sale"
+  },
+  "appBuy": {
+    "message": "Куп", 
+    "description":"buy"
+  },
+  "appDonate": {
+    "message": "пiдтримати", 
+    "description":"donate"
+  }
+}

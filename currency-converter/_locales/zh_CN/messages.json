@@ -1,0 +1,22 @@
+{
+  "appName": {
+    "message": "貨幣轉換器r",
+    "description": "Currency Converter"
+  },
+  "appDesc": {
+    "message": "簡約貨幣轉換器", 
+    "description":"The description of the application, displayed in the web store."
+  },
+  "appSale": {
+    "message": "銷售", 
+    "description":"sale"
+  },
+  "appBuy": {
+    "message": "購買", 
+    "description":"buy"
+  },
+  "appDonate": {
+    "message": "捐贈", 
+    "description":"donate"
+  }
+}

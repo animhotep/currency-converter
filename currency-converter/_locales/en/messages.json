@@ -1,0 +1,22 @@
+{
+  "appName": {
+    "message": "Currency Converter",
+    "description": "Currency Converter"
+  },
+  "appDesc": {
+    "message": "The minimalistic currency converter", 
+    "description":"The description of the application, displayed in the web store."
+  },
+  "appSale": {
+    "message": "Sale", 
+    "description":"sale"
+  },
+  "appBuy": {
+    "message": "Buy", 
+    "description":"buy"
+  },
+  "appDonate": {
+    "message": "donate", 
+    "description":"donate"
+  }
+}
