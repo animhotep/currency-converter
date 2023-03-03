@@ -1,12 +1,11 @@
 var action = "buy",
-    RUR = {},
     USD = {},
     EUR = {},
     c = {};
 
 var currency = {
     init: function () {
-        currency.localizeHtmlPage();
+        //currency.localizeHtmlPage();
 
         //load from local storage
         if (localStorage["action"] == "sale") {
@@ -34,38 +33,28 @@ var currency = {
     },
 
     getCourse: function (e) {
-        c = e.target.responseXML.querySelectorAll('exchangerate');
+        c = JSON.parse(e.target.response);
         this.calc();
     },
 
     calc: function (e) {
         var usdInput = document.getElementById('usd-input'),
-            rubInput = document.getElementById('rub-input'),
             eurInput = document.getElementById('eur-input'),
             uahInput = document.getElementById('uah-input');
 
         //set
-        RUR.buy = c[2].getAttribute(action);
-        EUR.buy = c[1].getAttribute(action);
-        USD.buy = c[0].getAttribute(action);
+        EUR.buy = c[0].buy;
+        USD.buy = c[1].buy;
 
         //init
         var usd = localStorage["usdVal"] || 1;
         usdInput.value = usd;
-        rubInput.value = USD.buy / RUR.buy * usd;
         eurInput.value = USD.buy / EUR.buy * usd;
         uahInput.value = USD.buy * usd;
         //change
         usdInput.oninput = function () {
-            rubInput.value = (USD.buy * this.value) / RUR.buy;
             eurInput.value = (USD.buy * this.value) / EUR.buy;
             uahInput.value = (USD.buy * this.value);
-            localStorage["usdVal"] = document.getElementById('usd-input').value;
-        };
-        rubInput.oninput = function () {
-            usdInput.value = (RUR.buy * this.value) / USD.buy;
-            eurInput.value = (RUR.buy * this.value) / EUR.buy;
-            uahInput.value = (RUR.buy * this.value);
             localStorage["usdVal"] = document.getElementById('usd-input').value;
         };
         eurInput.oninput = function () {
@@ -82,9 +71,6 @@ var currency = {
         };
         //select on click
         usdInput.onclick = function () {
-            this.select();
-        };
-        rubInput.onclick = function () {
             this.select();
         };
         eurInput.onclick = function () {
@@ -116,10 +102,4 @@ var currency = {
 
 document.addEventListener('DOMContentLoaded', function () {
     currency.init();
-
-    document.getElementById('donate').addEventListener('click', function () {
-        chrome.tabs.create({
-            url: 'https://www.liqpay.com/api/3/checkout?data=eyJ2ZXJzaW9uIjozLCJhY3Rpb24iOiJwYXlkb25hdGUiLCJwdWJsaWNfa2V5IjoiaTg3NDE1OTE4MzkxIiwiYW1vdW50IjoiNDUiLCJjdXJyZW5jeSI6IlVBSCIsImRlc2NyaXB0aW9uIjoi0JrQvtC90LLQtdGA0YLQtdGAINCy0LDQu9GO0YIiLCJ0eXBlIjoiZG9uYXRlIiwibGFuZ3VhZ2UiOiJydSJ9&signature=%2F6MCepPdJBNYHq6cuxyc9ZZWajM%3D'
-        });
-    });
 });
