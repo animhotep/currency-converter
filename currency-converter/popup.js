@@ -5,7 +5,7 @@ var action = "buy",
 
 var currency = {
     init: function () {
-        //currency.localizeHtmlPage();
+        currency.localizeHtmlPage();
 
         //load from local storage
         if (localStorage["action"] == "sale") {
