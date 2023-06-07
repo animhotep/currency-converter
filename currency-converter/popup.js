@@ -59,12 +59,10 @@ var currency = {
         };
         eurInput.oninput = function () {
             usdInput.value = (EUR.buy * this.value) / USD.buy;
-            rubInput.value = (EUR.buy * this.value) / RUR.buy;
             uahInput.value = (EUR.buy * this.value);
             localStorage["usdVal"] = document.getElementById('usd-input').value;
         };
         uahInput.oninput = function () {
-            rubInput.value = (this.value / RUR.buy);
             usdInput.value = (this.value / USD.buy);
             eurInput.value = (this.value / EUR.buy);
             localStorage["usdVal"] = document.getElementById('usd-input').value;
