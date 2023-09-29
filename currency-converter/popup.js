@@ -6,7 +6,9 @@ var action = "buy",
 var currency = {
     init: function () {
         currency.localizeHtmlPage();
-
+        
+        this.getCourse();
+        
         //load from local storage
         if (localStorage["action"] == "sale") {
             document.getElementById("sale").checked = true;
@@ -25,15 +27,12 @@ var currency = {
             localStorage["action"] = action;
             currency.calc();
         }, false);
-
-        var req = new XMLHttpRequest();
-        req.open("GET", 'https://api.privatbank.ua/p24api/pubinfo?exchange&coursid=5', true);
-        req.onload = this.getCourse.bind(this);
-        req.send(null);
     },
 
-    getCourse: function (e) {
-        c = JSON.parse(e.target.response);
+    getCourse: async function (e) {
+        let r = await fetch('https://api.privatbank.ua/p24api/pubinfo?exchange&coursid=5');
+
+        c = await r.json();
         this.calc();
     },
 
@@ -43,28 +42,28 @@ var currency = {
             uahInput = document.getElementById('uah-input');
 
         //set
-        EUR.buy = c[0].buy;
-        USD.buy = c[1].buy;
+        EUR = c[0][action];
+        USD = c[1][action];
 
         //init
         var usd = localStorage["usdVal"] || 1;
         usdInput.value = usd;
-        eurInput.value = USD.buy / EUR.buy * usd;
-        uahInput.value = USD.buy * usd;
+        eurInput.value = USD / EUR * usd;
+        uahInput.value = USD * usd;
         //change
         usdInput.oninput = function () {
-            eurInput.value = (USD.buy * this.value) / EUR.buy;
-            uahInput.value = (USD.buy * this.value);
+            eurInput.value = (USD * this.value) / EUR;
+            uahInput.value = (USD * this.value);
             localStorage["usdVal"] = document.getElementById('usd-input').value;
         };
         eurInput.oninput = function () {
-            usdInput.value = (EUR.buy * this.value) / USD.buy;
-            uahInput.value = (EUR.buy * this.value);
+            usdInput.value = (EUR * this.value) / USD;
+            uahInput.value = (EUR * this.value);
             localStorage["usdVal"] = document.getElementById('usd-input').value;
         };
         uahInput.oninput = function () {
-            usdInput.value = (this.value / USD.buy);
-            eurInput.value = (this.value / EUR.buy);
+            usdInput.value = (this.value / USD);
+            eurInput.value = (this.value / EUR);
             localStorage["usdVal"] = document.getElementById('usd-input').value;
         };
         //select on click
